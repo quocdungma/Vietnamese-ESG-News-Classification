@@ -399,7 +399,6 @@ B-CF-0397,B,cafef_evaluation,cafef,a671df52046b533c,not_relevant,positive,0,0,0,
 B-CF-0398,B,cafef_evaluation,cafef,948271d53750efff,not_relevant,mixed,0,0,0,completed
 B-CF-0399,B,cafef_evaluation,cafef,4c56b28495fb57c8,relevant,positive,0,1,0,completed
 B-CF-0400,B,cafef_evaluation,cafef,bc08158b12ddd79b,relevant,positive,0,1,1,completed
-assignment_id,annotator_id,assignment_section,source,article_id,esg_relevance,sentiment,environmental,social,governance,annotation_status
 B-VS-0001,B,vietstock_train,vietstock,e360dafe76a51d9c,not_relevant,positive,0,0,0,completed
 B-VS-0002,B,vietstock_train,vietstock,da6ca393b0e677ef,relevant,negative,0,1,0,completed
 B-VS-0003,B,vietstock_train,vietstock,b73324c395243307,not_relevant,positive,0,0,0,completed
