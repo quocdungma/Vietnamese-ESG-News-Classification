@@ -3,7 +3,7 @@
 ## Scope
 This branch archives five exported Colab research scripts: expert agreement, expert adjudication assessment, PhoBERT and lexical-baseline training, XLM-RoBERTa training, and repeated-seed evaluation. Scripts are not yet validated as stand-alone CLI programs.
 
-The public expert CSVs are **expert-return labels**, not final adjudicated gold labels. Original publisher article texts, URLs, quotations, expert notes and full workbooks are intentionally excluded. Neither the released labels nor this repository alone suffice to retrain the classifiers.
+The public expert CSVs are **2,000-row label-only exports from the user-supplied Expert A/B Final master workbooks**; they are not the adjudicated final gold set and do not establish 2,000 independently new expert annotations per rater. Original publisher article texts, URLs, quotations, expert notes and full workbooks are intentionally excluded. Neither the released labels nor this repository alone suffice to retrain the classifiers.
 
 ## Evaluation protocol
 Six reported tasks: ESG relevance; all-article sentiment; sentiment restricted to ESG-relevant articles; and E, S, G presence. Vietstock is used for training and CafeF for target-source validation and held-out testing. Publisher and period may be confounded, so this is not proof of isolated publisher-domain transfer or zero-shot transfer.
