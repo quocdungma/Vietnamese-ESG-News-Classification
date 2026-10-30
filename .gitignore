@@ -1,0 +1,23 @@
+# Private/source-controlled inputs and large outputs
+.env
+*.key
+*.pem
+credentials.json
+secrets.json
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+checkpoints/
+models/
+outputs/
+results/
+*.parquet
+*.pkl
+*.pt
+*.safetensors
+# Do not commit raw third-party article content or unredacted expert forms
+data/raw/
+data/articles/
+data/full_text/
+*_master.xlsx
+*_annotation.xlsx
