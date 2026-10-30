@@ -1,50 +1,47 @@
-# Expert reliability: aggregate results and interpretation
+# Independent expert agreement and annotation design
 
-Source: `ESG_Independent_Experts_Evaluation.xlsx` (private research Drive, modified 2026-09-27). These files reproduce aggregate values from the workbook; no article titles, texts or individual-level disagreement records are included.
+## Annotation assignments
 
-## Design and provenance (important)
+The study's annotation protocol involved **two experts working independently** on article-level labels before discussion and adjudication:
 
-Each reconstructed expert master contains 2,000 articles. The union contains 2,800 articles and the reconstructed A–B overlap contains 1,200 (800 CafeF, 400 Vietstock). However, only **600 entries per expert** are flagged `new_returned_annotation`, with 800 `pre_existing_current_final_label` and 600 `current_done_final_label` each. Therefore **the full reconstructed 1,200-overlap comparison must not be described as 1,200 independently newly annotated overlapping articles**.
+| Design component | Expert A | Expert B |
+| --- | ---: | ---: |
+| Independently annotated articles | 2,000 | 2,000 |
+| CafeF articles in assignment | 800 | 800 |
+| Vietstock articles in assignment | 1,200 | 1,200 |
+| Articles shared by both experts | 1,200 | 1,200 |
+| Articles unique to each assignment | 800 | 800 |
 
-The public `data/annotations/ESG_Master_Expert_A_Final_labels_only.csv` and `data/annotations/ESG_Master_Expert_B_Final_labels_only.csv` contain the full reconstructed 2,000-row master label-only exports. The previously published 600-row `returned_expert_*.csv` files were superseded and deleted. The reconstructed master comparisons include pre-existing and reference-derived labels. Some very high Expert-vs-Final values are not independent evidence of reliability.
+There are **4,000 independent article-annotation assignments across 2,800 distinct articles**. The intersection includes 800 CafeF and 400 Vietstock articles. The **same 1,200 articles** were independently labeled by both experts, providing the dataset for direct A-versus-B inter-annotator reliability.
 
-## Reconstructed Expert A–B agreement (n=1,200)
+After the independent annotations, disagreements were discussed. The reference label set is finalized by adjudication; it is **not** used to calculate the direct A/B agreement shown below. The second author's deciding vote is an adjudication mechanism, not a third independent rater.
 
-| Task | Observed agreement | Cohen's kappa | Macro-F1 |
-| --- | ---: | ---: | ---: |
-| ESG relevance | 0.8242 | 0.6460 | 0.8230 |
-| Sentiment | 0.8017 | 0.6750 | 0.7786 |
-| Environmental | 0.9417 | 0.7080 | 0.8539 |
-| Social | 0.8458 | 0.6485 | 0.8242 |
-| Governance | 0.8517 | 0.5308 | 0.7653 |
+## Direct A/B agreement on the 1,200 common articles
 
-These figures describe agreement on the reconstructed overlap. Interpret kappa alongside class prevalence and observed agreement; do not conflate agreement with accuracy or with independent expert validation.
-
-## Files
-
-- `results/expert_reliability_pairwise_summary.csv`: source-specific and pooled Expert A–B aggregated agreement, confidence intervals, macro-F1, balanced accuracy and MCC.
-- `results/expert_reliability_provenance.csv`: assignment provenance and number of genuinely returned annotations.
-- `results/expert_reliability_coverage_checks.csv`: structural overlap and union checks.
-
-## Limitations and required follow-up
-
-- Report the comparison as *reconstructed expert-label agreement* unless independent overlap can be verified from raw assignment provenance.
-- Do not equate all reconstructed A–B matches to true independently observed agreement.
-- Separate reference-based Expert-vs-Final agreement from independent inter-rater reliability.
-- Validate the 600 newly returned labels per expert and source-specific independent overlap against the assignment design before using these numbers as a manuscript inter-annotator reliability claim.
-- Publish only aggregated non-sensitive outputs. No article text, URLs, titles, reviewer notes or original expert workbooks are included.
-
-
-## Expert A/B versus Final: reconstructed 2,000-article comparisons
-
-The full, publisher-stratified summary is in `results/expert_vs_final_2000_summary.csv`: 30 rows (2 comparisons × 3 source scopes × 5 tasks). Each expert reconstructed master has 2,000 observations: 1,200 Vietstock and 800 CafeF. These numbers do **not** indicate that each expert newly labeled 2,000 articles independently.
-
-| Task | A vs Final agreement | A vs Final kappa | B vs Final agreement | B vs Final kappa |
+| Task | n | Observed agreement | Cohen's kappa | Symmetric macro-F1 |
 | --- | ---: | ---: | ---: | ---: |
-| ESG relevance | 0.9470 | 0.8910 | 0.9475 | 0.8924 |
-| Sentiment | 0.9360 | 0.8998 | 0.9450 | 0.9138 |
-| Environmental | 0.9815 | 0.9042 | 0.9835 | 0.9182 |
-| Social | 0.9450 | 0.8583 | 0.9625 | 0.9038 |
-| Governance | 0.9560 | 0.8718 | 0.9550 | 0.8698 |
+| ESG relevance | 1,200 | 82.42% | 0.6460 | 0.8230 |
+| Sentiment | 1,200 | 80.17% | 0.6750 | 0.7786 |
+| Environmental | 1,200 | 94.17% | 0.7080 | 0.8539 |
+| Social | 1,200 | 84.58% | 0.6485 | 0.8242 |
+| Governance | 1,200 | 85.17% | 0.5308 | 0.7653 |
 
-These are reconstructed-label comparisons against the Final set, not independent proof of inter-annotator agreement. For a methodological paper, distinguish newly returned expert assignments from pre-existing/reference-derived records.
+The lowest observed agreement is for sentiment (80.17%) and the highest for environmental (94.17%). The lowest chance-corrected kappa is governance (0.5308), so observed agreement must be interpreted alongside class prevalence. Kappa is unweighted for nominal labels. Macro-F1 in pairwise comparisons is reported as an additional descriptive diagnostic, not as annotation accuracy.
+
+The full summary [results/expert_reliability_pairwise_summary.csv](../results/expert_reliability_pairwise_summary.csv) includes pooled and publisher-specific results, intervals for observed agreement, balanced accuracy and MCC. No per-article original text is published.
+
+## Expert vs adjudicated final labels: a different comparison
+
+[results/expert_vs_final_2000_summary.csv](../results/expert_vs_final_2000_summary.csv) describes each expert's labels against the final adjudicated reference across each expert's 2,000 articles. Because the final reference can incorporate the experts' judgments, **agreement with Final is not an independent measure of inter-rater reliability** and should not replace the direct A/B agreement above.
+
+## Data provenance
+
+The two public label-only CSVs contain **all 2,000 independent expert judgments each**. Some archived processing metadata classify records by import or assembly stage, such as `new_returned_annotation`, `pre_existing_current_final_label` and `current_done_final_label`. These terms record **data-processing provenance**, not whether the experts made their initial annotation decisions independently. They must not be used to infer that only 600 annotations per expert were independent.
+
+The released data omit original news text, article titles, article URLs and expert reasoning notes. Files retain article keys, publisher, five labels and annotation status. The final adjudicated gold-standard dataset is not publicly released.
+
+## Manuscript alignment
+
+- Section 3.3: describe direct A/B pre-adjudication agreement on 1,200 jointly assigned articles
+- Supplementary Table S1: report observed agreement and Cohen's kappa, pooled and optionally by publisher
+- Sections 5.1 and Conclusion: separate annotation quality from predictive performance and from Expert-vs-Final concordance
