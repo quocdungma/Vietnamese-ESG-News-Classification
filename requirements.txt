@@ -1,0 +1,18 @@
+# Tested environment versions have not yet been frozen from original Colab logs.
+# These packages are dependencies observed in the exported research notebooks.
+numpy
+pandas
+scipy
+scikit-learn
+torch
+transformers
+datasets
+accelerate
+sentencepiece
+protobuf
+openpyxl
+pyarrow
+matplotlib
+seaborn
+py_vncorenlp
+ipython
