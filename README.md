@@ -1,23 +1,25 @@
 # Vietnamese ESG News Classification
 
-Reproducibility materials for article-level classification of Vietnamese financial news from Vietstock and CafeF.
+This repository provides research code for evaluating six article-level ESG classification tasks on Vietnamese financial news.
 
-The study evaluates six tasks: ESG relevance; sentiment for all eligible articles; sentiment within ESG-relevant articles; and Environmental, Social and Governance presence. Model comparisons include TF-IDF baselines, PhoBERT and XLM-RoBERTa.
+## Core scripts
 
-## Repository contents
+1. `scripts/01_expert_agreement.py` — expert agreement.
+2. `scripts/02_expert_adjudication.py` — expert adjudication assessment.
+3. `scripts/03_train_phobert.py` — PhoBERT and lexical baselines.
+4. `scripts/04_train_xlmr.py` — XLM-RoBERTa comparison.
+5. `scripts/05_random_seed_evaluation.py` — repeated seed experiments.
 
-- `data/annotations/`: **label-only** expert-return datasets. Article body, title, description, evidence quotations and expert notes are intentionally excluded.
-- `scripts/`: core processing, model training and evaluation code extracted from research notebooks without notebook outputs.
-- `docs/`: documentation of study scope and reproduction limitations.
+The scripts are exported from Colab notebooks. They still require environment/path adaptation and have not been verified as independent command-line programs.
 
-## Important data and reproduction limitations
+## Data
 
-This is a public repository. Full copyrighted news articles and unredacted expert workbooks are **not distributed**. Labels alone are insufficient for retraining text classifiers: authorized access to the original article texts is needed. Do not interpret the label-only datasets as the final adjudicated benchmark; the expert-return workbooks are pre-adjudication review material.
+Original restricted inputs in Google Drive: `returned_expert_A_annotation.xlsx` and `returned_expert_B_annotation.xlsx`. Their full workbooks contain publisher news text and expert notes and are **not distributed publicly**. The release contains only minimal label-only CSV derivatives under `data/annotations/`; these are expert-return records, not adjudicated final gold labels.
 
-The study trains on Vietstock, selects configurations on CafeF validation, and reports results on held-out CafeF testing. As publisher and time period shift together, the protocol does not isolate publisher effects.
+The model experiments use the broader labeled Vietstock/CafeF corpus (2,800 articles). The expert-return data alone are **not sufficient for model training**.
 
-The scripts were adapted from Colab notebooks; paths, installed dependencies, checkpoints, and environment must be configured before running. Do not assume end-to-end reproducibility without the restricted inputs.
+## Scope
 
-## Citation
+Training: Vietstock. Target-source validation and held-out testing: CafeF. The research does not claim zero-shot adaptation.
 
-Manuscript citation and archival DOI will be added when available.
+The collection/crawling and initial annotation preparation notebooks are intentionally omitted.
