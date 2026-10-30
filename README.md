@@ -1,25 +1,44 @@
 # Vietnamese ESG News Classification
 
-This repository provides research code for evaluating six article-level ESG classification tasks on Vietnamese financial news.
+Research code and selected publication figures for classifying Vietnamese financial news by ESG relevance, sentiment, and ESG pillars.
 
-## Core scripts
+## Study scope
 
-1. `scripts/01_expert_agreement.py` — expert agreement.
-2. `scripts/02_expert_adjudication.py` — expert adjudication assessment.
-3. `scripts/03_train_phobert.py` — PhoBERT and lexical baselines.
-4. `scripts/04_train_xlmr.py` — XLM-RoBERTa comparison.
-5. `scripts/05_random_seed_evaluation.py` — repeated seed experiments.
+Six article-level tasks:
+1. ESG relevance
+2. Sentiment on all eligible articles
+3. Sentiment within ESG-relevant articles
+4. Environmental presence
+5. Social presence
+6. Governance presence
 
-The scripts are exported from Colab notebooks. They still require environment/path adaptation and have not been verified as independent command-line programs.
+Models include TF-IDF-based lexical baselines, PhoBERT, and XLM-RoBERTa. Training uses Vietstock articles; CafeF is used for target-source validation and held-out testing. Publisher and time-period differences are not separately identified, so the results should not be described as zero-shot adaptation or a pure publisher-only effect.
 
-## Data
+## Code
 
-Original restricted inputs in Google Drive: `returned_expert_A_annotation.xlsx` and `returned_expert_B_annotation.xlsx`. Their full workbooks contain publisher news text and expert notes and are **not distributed publicly**. The release contains only minimal label-only CSV derivatives under `data/annotations/`; these are expert-return records, not adjudicated final gold labels.
+- `scripts/01_expert_agreement.py`: expert agreement
+- `scripts/02_expert_adjudication.py`: expert adjudication assessment
+- `scripts/03_train_phobert.py`: PhoBERT and lexical baselines
+- `scripts/04_train_xlmr.py`: XLM-RoBERTa
+- `scripts/05_random_seed_evaluation.py`: repeated-seed assessment
 
-The model experiments use the broader labeled Vietstock/CafeF corpus (2,800 articles). The expert-return data alone are **not sufficient for model training**.
+These scripts are exported notebook cells and have **not** been validated as standalone executable programs. Colab-specific setup and Drive paths remain. `requirements.txt` is a provisional dependency list, not a locked execution environment.
 
-## Scope
+## Data and figures
 
-Training: Vietstock. Target-source validation and held-out testing: CafeF. The research does not claim zero-shot adaptation.
+- `data/annotations/`: sanitized label-only Expert A and Expert B return files, **not final adjudicated gold labels**.
+- `figures/figure_3_paired_encoder_differences.svg`: paired encoder performance differences.
+- `figures/figure_4_sentiment_class_recall.svg`: sentiment class recall by seed.
+- `results/figure_4_class_recall_by_seed.csv`: numerical data supporting Figure 4.
 
-The collection/crawling and initial annotation preparation notebooks are intentionally omitted.
+Source figure exports were located in the research Drive `ESG_annotation_sampling/manuscript_figures`. Unreviewed machine-translated supplementary wordclouds are not presented as final publication figures.
+
+The experiments use a larger labeled Vietstock/CafeF corpus of 2,800 articles. The public expert label files are not sufficient for retraining. Original news text, full expert workbooks, quotations, article URLs, and unreleased gold data are intentionally excluded pending permission and release review.
+
+## Reproducibility and release
+
+Read [reproducibility notes](docs/REPRODUCIBILITY.md) and [release checklist](docs/RELEASE_CHECKLIST.md). Frozen split manifests and complete result tables have not yet been published. End-to-end reproduction is **not currently claimed**.
+
+## Citation and license
+
+A definitive manuscript citation, license, and archival DOI will be added after author and publication-rights review.
