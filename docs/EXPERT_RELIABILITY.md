@@ -6,7 +6,7 @@ Source: `ESG_Independent_Experts_Evaluation.xlsx` (private research Drive, modif
 
 Each reconstructed expert master contains 2,000 articles. The union contains 2,800 articles and the reconstructed A–B overlap contains 1,200 (800 CafeF, 400 Vietstock). However, only **600 entries per expert** are flagged `new_returned_annotation`, with 800 `pre_existing_current_final_label` and 600 `current_done_final_label` each. Therefore **the full reconstructed 1,200-overlap comparison must not be described as 1,200 independently newly annotated overlapping articles**.
 
-The two public `returned_expert_*.csv` files represent returned labels only. The reconstructed master comparisons include pre-existing and reference-derived labels. Some very high Expert-vs-Final values are not independent evidence of reliability.
+The public `data/annotations/ESG_Master_Expert_A_Final_labels_only.csv` and `data/annotations/ESG_Master_Expert_B_Final_labels_only.csv` contain the full reconstructed 2,000-row master label-only exports. The previously published 600-row `returned_expert_*.csv` files were superseded and deleted. The reconstructed master comparisons include pre-existing and reference-derived labels. Some very high Expert-vs-Final values are not independent evidence of reliability.
 
 ## Reconstructed Expert A–B agreement (n=1,200)
 
