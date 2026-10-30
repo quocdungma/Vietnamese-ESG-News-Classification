@@ -26,14 +26,14 @@ These scripts are exported notebook cells and have **not** been validated as sta
 
 ## Data and figures
 
-- `data/annotations/`: sanitized label-only Expert A and Expert B return files, **not final adjudicated gold labels**.
+- `data/annotations/ESG_Master_Expert_A_Final_labels_only.csv` and `ESG_Master_Expert_B_Final_labels_only.csv`: 2,000 rows per reconstructed expert master (800 CafeF + 1,200 Vietstock each), with nine non-text columns. These are **not** independently newly annotated 2,000-row sets or the final adjudicated gold labels.
 - `figures/figure_3_paired_encoder_differences.svg`: paired encoder performance differences.
 - `figures/figure_4_sentiment_class_recall.svg`: sentiment class recall by seed.
 - `results/figure_4_class_recall_by_seed.csv`: numerical data supporting Figure 4.
 
 Source figure exports were located in the research Drive `ESG_annotation_sampling/manuscript_figures`. Unreviewed machine-translated supplementary wordclouds are not presented as final publication figures.
 
-The experiments use a larger labeled Vietstock/CafeF corpus of 2,800 articles. The public expert label files are not sufficient for retraining. Original news text, full expert workbooks, quotations, article URLs, and unreleased gold data are intentionally excluded pending permission and release review.
+The experiments use a larger labeled Vietstock/CafeF corpus of 2,800 articles. The public expert master label-only files are not sufficient for retraining. Original news text, full expert workbooks, quotations, article URLs, and unreleased gold data are intentionally excluded pending permission and release review.
 
 ## Reproducibility and release
 
