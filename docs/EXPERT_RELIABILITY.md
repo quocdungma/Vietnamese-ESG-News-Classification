@@ -33,3 +33,18 @@ These figures describe agreement on the reconstructed overlap. Interpret kappa a
 - Separate reference-based Expert-vs-Final agreement from independent inter-rater reliability.
 - Validate the 600 newly returned labels per expert and source-specific independent overlap against the assignment design before using these numbers as a manuscript inter-annotator reliability claim.
 - Publish only aggregated non-sensitive outputs. No article text, URLs, titles, reviewer notes or original expert workbooks are included.
+
+
+## Expert A/B versus Final: reconstructed 2,000-article comparisons
+
+The full, publisher-stratified summary is in `results/expert_vs_final_2000_summary.csv`: 30 rows (2 comparisons × 3 source scopes × 5 tasks). Each expert reconstructed master has 2,000 observations: 1,200 Vietstock and 800 CafeF. These numbers do **not** indicate that each expert newly labeled 2,000 articles independently.
+
+| Task | A vs Final agreement | A vs Final kappa | B vs Final agreement | B vs Final kappa |
+| --- | ---: | ---: | ---: | ---: |
+| ESG relevance | 0.9470 | 0.8910 | 0.9475 | 0.8924 |
+| Sentiment | 0.9360 | 0.8998 | 0.9450 | 0.9138 |
+| Environmental | 0.9815 | 0.9042 | 0.9835 | 0.9182 |
+| Social | 0.9450 | 0.8583 | 0.9625 | 0.9038 |
+| Governance | 0.9560 | 0.8718 | 0.9550 | 0.8698 |
+
+These are reconstructed-label comparisons against the Final set, not independent proof of inter-annotator agreement. For a methodological paper, distinguish newly returned expert assignments from pre-existing/reference-derived records.
