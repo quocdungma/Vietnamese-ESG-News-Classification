@@ -1,0 +1,3 @@
+,file,rows_used_for_evaluation,direct_annotation_flag_count,provenance_counts,blocks_evaluation
+0,Expert A,2000,600,"{'pre_existing_current_final_label': 800, 'new_returned_annotation': 600, 'current_done_final_label': 600}",False
+1,Expert B,2000,600,"{'pre_existing_current_final_label': 800, 'current_done_final_label': 600, 'new_returned_annotation': 600}",False

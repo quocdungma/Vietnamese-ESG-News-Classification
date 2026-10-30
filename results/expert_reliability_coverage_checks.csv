@@ -1,0 +1,9 @@
+,measure,observed,expected,status
+0,Expert A articles,2000,2000,PASS
+1,Expert B articles,2000,2000,PASS
+2,A-B overlap,1200,1200,PASS
+3,A-exclusive,800,800,PASS
+4,B-exclusive,800,800,PASS
+5,A-B union,2800,2800,PASS
+6,Final articles,2800,2800,PASS
+7,Union symmetric difference with Final,0,0,PASS
