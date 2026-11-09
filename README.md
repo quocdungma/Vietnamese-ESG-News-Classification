@@ -16,14 +16,15 @@ The released files are label-only exports of the complete expert datasets:
 - [Expert A, 2,000 labels](data/annotations/ESG_Master_Expert_A_Final_labels_only.csv)
 - [Expert B, 2,000 labels](data/annotations/ESG_Master_Expert_B_Final_labels_only.csv)
 
-The adjudicated reference/gold labels used for training and evaluation are distinct from these independent expert labels and are not publicly redistributed. See [expert reliability](docs/EXPERT_RELIABILITY.md). Processing-stage provenance values in an older results file reflect how annotation records were assembled for export; they do **not** describe whether experts independently made their judgments.
+The adjudicated reference/gold labels used for training and evaluation are distinct from these independent expert labels and are not publicly redistributed. See `docs/EXPERT_RELIABILITY.md` in the source repository (the anonymous viewer may not render this document). Processing-stage provenance values in an older results file reflect how annotation records were assembled for export; they do **not** describe whether experts independently made their judgments.
 
 ## Models and evaluation
 
 - Majority-class baseline; TF-IDF logistic regression; TF-IDF linear SVM; PhoBERT-base-v2; XLM-RoBERTa-base
 - Shared split: Vietstock train 2,000; CafeF validation 400; CafeF test 400. Conditional ESG task sizes: 715 / 206 / 206
 - Three encoder seeds: 13, 42, 77; task/encoder-specific four-view weights selected on CafeF validation and then locked across seeds
-- Each view uses up to 256 tokens; outputs are combined using locked nonnegative weights
+- TF-IDF baselines use features extracted from the full article body text, without the token limits applied to the encoder views.
+- Each encoder view uses up to 256 tokens; outputs are combined using locked nonnegative weights
 - Training environment: Python on Google Colab, NVIDIA L4 GPU; bfloat16, learning rate 2e-5, training batch 16, evaluation batch 32, accumulation 1
 
 ## Research code
@@ -34,6 +35,8 @@ The five files in [scripts](scripts) are exported notebook code:
 3. `03_train_phobert.py`
 4. `04_train_xlmr.py`
 5. `05_random_seed_evaluation.py`
+
+**A standalone script for training or reproducing the TF-IDF baselines is not included in this repository.** The released baseline metrics are provided in `results/baseline_metrics_six_tasks.csv`.
 
 **The exported scripts have not been validated as standalone, end-to-end runnable programs**. Google Colab paths and private input data are still required. Dependencies in `requirements.txt` are provisional, not a locked environment.
 
@@ -49,10 +52,8 @@ The five files in [scripts](scripts) are exported notebook code:
 - `figures/figure_2_sentiment_class_recall.svg`: Figure 2 in the manuscript
 - `results/figure_2_class_recall_by_seed.csv`: numerical source for Figure 2
 
-Figure 3 in the manuscript is a descriptive ESG pillar wordcloud. Machine-translated phrases need manual review before a publication-ready figure is added.
 
 ## Limitations, availability and anonymization
 
-Article full text, titles, URLs, detailed expert workbooks and the adjudicated final reference labels are not publicly released pending redistribution and data-rights review. Public artifacts do not presently enable full retraining. See [reproducibility and scope](docs/REPRODUCIBILITY.md) and [release checklist](docs/RELEASE_CHECKLIST.md).
-
-This repository identifies its account owner. **Do not put its direct URL in a double-anonymized review manuscript**; provide an appropriately reviewed anonymized repository snapshot if required. A license, archival DOI and definitive citation remain pending publication-rights review.
+Article full text, titles, URLs, detailed expert workbooks and the adjudicated final reference labels are not publicly released pending redistribution and data-rights review. Public artifacts do not presently enable full retraining. Additional documentation is stored at `docs/REPRODUCIBILITY.md` and `docs/RELEASE_CHECKLIST.md` in the source repository; the anonymous viewer may not render these files.
+ A license, archival DOI and definitive citation remain pending publication-rights review.
